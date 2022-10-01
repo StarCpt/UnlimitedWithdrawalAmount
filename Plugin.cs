@@ -46,8 +46,8 @@ namespace Unlimited_ATM_Withdrawal_Amount
         public static void Postfix(ref ObservableCollection<object> __result)
         {   //                                                                                         grid1        grid2        grid3        grid5           numericTextBox1
             NumericTextBox box = (NumericTextBox)((Grid)((Grid)((Grid)((Grid)((TabItem)__result[0]).Content).Children[1]).Children[0]).Children[4]).Children[4];
-            box.MaxLength = int.MaxValue;
-            box.Maximum = float.MaxValue;
+            box.MaxLength = 10;
+            box.Maximum = int.MaxValue;
         }
     }
 }
