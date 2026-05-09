@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
+    <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <RootNamespace>UnlimitedWithdrawalAmount</RootNamespace>
   </PropertyGroup>
 
@@ -14,9 +16,14 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(AppData)\Pulsar\Libraries\Legacy\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EmptyKeys.UserInterface">
       <HintPath>$(Bin64)\EmptyKeys.UserInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EmptyKeys.UserInterface.Core">
+      <HintPath>$(Bin64)\EmptyKeys.UserInterface.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard" />
@@ -36,6 +43,10 @@
       <HintPath>$(Bin64)\Sandbox.Graphics.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sandbox.RenderDirect">
+      <HintPath>$(Bin64)\Sandbox.RenderDirect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="SpaceEngineers.Game">
       <HintPath>$(Bin64)\SpaceEngineers.Game.dll</HintPath>
       <Private>False</Private>
@@ -46,6 +57,14 @@
     </Reference>
     <Reference Include="System.Collections.Immutable">
       <HintPath>$(Bin64)\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>$(Bin64)\System.Memory.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>$(Bin64)\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VRage">
@@ -68,6 +87,10 @@
       <HintPath>$(Bin64)\VRage.Math.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VRage.Network">
+      <HintPath>$(Bin64)\VRage.Network.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="VRage.Render">
       <HintPath>$(Bin64)\VRage.Render.dll</HintPath>
       <Private>False</Private>
@@ -76,6 +99,23 @@
       <HintPath>$(Bin64)\VRage.Render11.dll</HintPath>
       <Private>False</Private>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Publicize Include="SpaceEngineers.Game" IncludeCompilerGeneratedMembers="false" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
+    <PublicizerRuntimeStrategies>Unsafe</PublicizerRuntimeStrategies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer">
+      <Version>2.2.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
